@@ -1,0 +1,206 @@
+# AgentFlow 工作区信任配置
+# 文档：https://agentflow.dev/docs/trust-config
+# 版本：v1.0.0
+
+# ==================== 重要说明 ====================
+# 此文件定义 AgentFlow 的权限模型和信任规则。
+# 
+# 要实现「全自动执行，无 Allow 弹窗」，需要：
+# 1. 此文件配置正确（已预置）
+# 2. 项目 .vscode/settings.json 配置正确（agentflow init 自动生成）
+# 3. 用户全局 settings.json 添加信任配置（见下方说明）
+#
+# 用户全局设置（在 VS Code 中按 Cmd+Shift+P → "Open User Settings JSON"）：
+# {
+#   "github.copilot.chat.runCommand.enabled": true,
+#   "github.copilot.chat.allowFileOperations": true,
+#   "terminal.integrated.allowWorkspaceConfiguration": true,
+#   "security.workspace.trust.enabled": true
+# }
+# ==================== 基础配置 ====================
+version: "1.0"
+
+# 是否信任此工作区
+# - true: 启用智能权限管理，减少权限弹窗
+# - false: 禁用自动授权，所有操作都需确认
+trusted: true
+
+# 执行模式
+# - preview: 操作前预览，危险操作需确认（推荐）
+# - auto: 可信操作自动执行，危险操作需确认
+# - strict: 所有操作都需确认
+execution_mode: preview
+
+# ==================== Agent 权限模型 ====================
+agents:
+  # 规划 Agent - 只读权限
+  "@plan":
+    permissions:
+      - read_file
+      - list_directory
+      - search_code
+      - semantic_search
+    
+  # 实现 Agent - 读写权限
+  "@implement":
+    permissions:
+      - read_file
+      - write_file
+      - create_file
+      - edit_file
+      - list_directory
+      - search_code
+    
+  # 审查 Agent - 只读权限
+  "@reviewer":
+    permissions:
+      - read_file
+      - list_directory
+      - search_code
+      - semantic_search
+    
+  # 测试 Agent - 完整权限
+  "@tester":
+    permissions:
+      - read_file
+      - write_file
+      - create_file
+      - edit_file
+      - run_command
+      - run_tests
+    
+  # 调试 Agent - 完整权限
+  "@debug":
+    permissions:
+      - read_file
+      - write_file
+      - edit_file
+      - run_command
+      - debug_execute
+
+# ==================== 文件路径权限 ====================
+paths:
+  # 允许的路径（支持 glob 模式）
+  allowed:
+    - "src/**"
+    - "tests/**"
+    - "test/**"
+    - "docs/**"
+    - "scripts/**"
+    - "**/*.md"
+    - "**/*.ts"
+    - "**/*.js"
+    - "**/*.tsx"
+    - "**/*.jsx"
+    - "**/*.py"
+    - "**/*.java"
+    - "**/*.swift"
+    - "**/*.go"
+    - "**/*.rs"
+    - "**/package.json"
+    - "**/tsconfig.json"
+    - "**/README.md"
+  
+  # 禁止的路径（优先级高于 allowed）
+  denied:
+    - ".env*"
+    - "**/*.key"
+    - "**/*.pem"
+    - "**/*.p12"
+    - "**/secrets/**"
+    - "**/.ssh/**"
+    - "**/node_modules/**"
+    - "**/dist/**"
+    - "**/build/**"
+
+# ==================== 命令权限 ====================
+commands:
+  # 允许的命令（支持正则表达式）
+  allowed:
+    - "npm.*"
+    - "yarn.*"
+    - "pnpm.*"
+    - "git.*"
+    - "agentflow.*"
+    - "python.*"
+    - "node.*"
+    - "tsc.*"
+    - "jest.*"
+    - "pytest.*"
+    - "go (test|build|run).*"
+    - "cargo (test|build|run).*"
+    - "swift (test|build).*"
+  
+  # 禁止的命令（优先级高于 allowed）
+  denied:
+    - "rm -rf.*"
+    - "sudo.*"
+    - "curl.*\\|.*bash"
+    - "wget.*\\|.*sh"
+    - "chmod 777.*"
+    - "dd.*"
+    - "mkfs.*"
+
+# ==================== 会话设置 ====================
+session:
+  # 是否记住用户的授权决策
+  remember_choice: true
+  
+  # 记住决策的有效期（分钟）
+  remember_duration: 60
+  
+  # 是否支持批量授权
+  batch_approval: true
+  
+  # 操作预览设置
+  show_preview:
+    # 文件修改预览
+    file_changes: true
+    # 命令执行预览
+    command_execution: true
+    # 预览超时（秒）
+    timeout: 5
+
+# ==================== 安全策略 ====================
+security:
+  # 高危操作列表（始终需要确认）
+  high_risk_operations:
+    - delete_file
+    - delete_directory
+    - modify_system_files
+    - execute_sudo_commands
+    - network_requests
+  
+  # 操作日志记录
+  audit_log:
+    enabled: true
+    path: ".agentflow/audit.log"
+    max_size_mb: 10
+
+# ==================== 通知设置 ====================
+notifications:
+  # 工作流开始
+  workflow_start: true
+  
+  # 工作流完成
+  workflow_complete: true
+  
+  # 发生错误
+  on_error: true
+  
+  # 高危操作
+  high_risk_operation: true
+
+# ==================== 示例场景配置 ====================
+# 
+# 场景 1：开源项目（高信任）
+# trusted: true
+# execution_mode: auto
+# 
+# 场景 2：企业项目（中等信任）
+# trusted: true
+# execution_mode: preview
+# 
+# 场景 3：未知项目（低信任）
+# trusted: false
+# execution_mode: strict

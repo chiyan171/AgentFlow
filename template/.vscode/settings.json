@@ -1,0 +1,48 @@
+{
+  // ==================== 工作区信任 ====================
+  "security.workspace.trust.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.workspace.trust.startupPrompt": "never",
+  
+  // ==================== GitHub Copilot Agent 权限 ====================
+  // 文件操作
+  "github.copilot.chat.allowFileOperations": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  
+  // 终端命令执行 - 核心设置，消除 Allow 弹窗
+  "github.copilot.chat.runCommand.enabled": true,
+  "github.copilot.chat.terminalChatLocation": "terminal",
+  
+  // Agent 模式
+  "github.copilot.chat.agent.enabled": true,
+  "chat.agent.enabled": true,
+  
+  // ==================== 终端信任设置 ====================
+  // 允许工作区 shell 配置
+  "terminal.integrated.allowWorkspaceConfiguration": true,
+  
+  // 命令自动执行规则（减少确认弹窗）
+  "terminal.integrated.commandsToSkipShell": [
+    "github.copilot.terminal.suggestCommand",
+    "workbench.action.terminal.runSelectedText",
+    "workbench.action.terminal.runActiveFile"
+  ],
+  
+  // ==================== AgentFlow 推荐配置 ====================
+  // Chat 设置
+  "chat.editor.wordWrap": "on",
+  "chat.commandCenter.enabled": true,
+  
+  // 编辑器
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  
+  // 文件关联
+  "files.associations": {
+    "*.agent.md": "markdown",
+    "*.prompt.md": "markdown",
+    "*.instructions.md": "markdown"
+  }
+}
