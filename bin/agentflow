@@ -15,6 +15,7 @@ AgentFlow - AI 辅助开发工作流系统 v1.0.0
   sync [目录]            同步更新（保留自定义，只添加新文件）
   update [目录]          检查更新并显示更新指南
   trust                  配置 VS Code 信任（消除 Allow 弹窗，实现全自动执行）
+  daemon                 启动自动化守护进程（解决物理点击问题）
 
 Skills 技能管理（三级架构）:
   skills                 列出所有技能（全局 + 项目级 + VS Code）
@@ -89,6 +90,103 @@ Skills 目录结构（三级架构）:
   .github/instructions/              ← 项目级 VS Code skills（原生机制）
   └── *.instructions.md              ← 指令文件（Copilot 自动加载）
 HELP
+}
+
+# =============================================================================
+# Daemon 守护进程（自动化执行引擎）
+# =============================================================================
+
+run_daemon() {
+    local project_root="${1:-.}"
+    local bus_dir="$project_root/.agentflow/bus"
+    local cmd_pipe="$bus_dir/cmd.q"
+    local log_file="$bus_dir/runner.log"
+    local pid_file="$bus_dir/daemon.pid"
+
+    mkdir -p "$bus_dir"
+    touch "$cmd_pipe" "$log_file"
+    
+    echo "🚀 AgentFlow 守护进程已启动"
+    echo "📂 监听总线: $cmd_pipe"
+    echo "📝 输出日志: $log_file"
+    echo "🤖 模式: 全自动执行 (Auto-Execution)"
+    echo "========================================"
+    echo "请在 Copilot 中告诉 Agent: '启用守护进程模式'"
+    echo "按 Ctrl+C 停止"
+    echo ""
+
+    # 保存 PID
+    echo $$ > "$pid_file"
+
+    # 循环监听
+    tail -f "$cmd_pipe" | while read -r line; do
+        [[ -z "$line" ]] && continue
+        
+        # 获取时间戳
+        ts=$(date "+%H:%M:%S")
+        
+        # 识别指令类型
+        if [[ "$line" == "#"* ]]; then
+            # 注释/元数据
+            echo "[$ts] ℹ️  $line"
+            continue
+        fi
+
+        # ⚡ 并行任务处理 (BG: command)
+        if [[ "$line" == "BG:"* ]]; then
+            cmd="${line#BG:}"
+            task_id="task_$(date +%s)_$RANDOM"
+            task_log="$bus_dir/${task_id}.log"
+            
+            echo "[$ts] 🚀 启动并行任务: $task_id" >> "$log_file"
+            echo "[$ts] 🚀 启动并行任务: $task_id"
+            echo "   └─ 指令: $cmd" >> "$log_file"
+            echo "   └─ 日志: $task_log" >> "$log_file"
+            
+            # 后台执行
+            (
+                echo "=== 任务开始: $ts ===" > "$task_log"
+                echo "指令: $cmd" >> "$task_log"
+                echo "------------------------" >> "$task_log"
+                eval "$cmd" >> "$task_log" 2>&1
+                exit_code=$?
+                end_ts=$(date "+%H:%M:%S")
+                echo "------------------------" >> "$task_log"
+                if [[ $exit_code -eq 0 ]]; then
+                    echo "=== 任务成功: $end_ts ===" >> "$task_log"
+                    # 通知主日志
+                    echo "[$end_ts] ✅ 并行任务完成: $task_id" >> "$log_file"
+                else
+                    echo "=== 任务失败 (代码 $exit_code): $end_ts ===" >> "$task_log"
+                    echo "[$end_ts] ❌ 并行任务失败: $task_id" >> "$log_file"
+                fi
+            ) &
+            
+            continue
+        fi
+
+        # ⚡ 串行任务处理 (默认)
+        echo "[$ts] ⚡ 执行: $line" >> "$log_file"
+        echo "[$ts] ⚡ 执行: $line"
+        
+        # 执行命令并捕获输出
+        # 使用 eval 执行以支持管道和重定向，但在受控环境中
+        {
+            eval "$line" 
+        } >> "$log_file" 2>&1
+        
+        exit_code=$?
+        
+        if [[ $exit_code -eq 0 ]]; then
+            echo "[$ts] ✅ 成功" >> "$log_file"
+            echo "[$ts] ✅ 成功"
+        else
+            echo "[$ts] ❌ 失败 (代码 $exit_code)" >> "$log_file"
+            echo "[$ts] ❌ 失败 (代码 $exit_code)"
+        fi
+        
+        echo "----------------------------------------" >> "$log_file"
+    done
 }
 
 # =============================================================================
@@ -1526,6 +1624,7 @@ case "${1:-help}" in
     validate) validate_project "$2" ;;
     update)   update_agentflow "${2:-.}" ;;
     trust)    configure_vscode_trust ;;
+    daemon)   run_daemon "$2" ;;
     skills)   shift; handle_skills "$@" ;;
     docs)     
         if [[ -d "$AGENTFLOW_HOME/template/.github/docs/agentflow" ]]; then
