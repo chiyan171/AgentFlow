@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-02-10
+
+**AgentFlow 2.0.0 重大架构升级：Node.js 迁移与通用安装器**
+
+> 此次更新带来了底层的彻底重构，从 Shell 脚本迁移至 Node.js，提供了更稳健的跨平台支持和更强大的扩展能力。
+
+### 🚀 Major Changes
+
+#### 1. Node.js 迁移 (Migration to Node.js)
+- **核心重构**：CLI 工具从 Zsh 脚本完全重写为 Node.js 应用，显著提升了在 Windows 和复杂环境下的稳定性。
+- **性能提升**：更快的启动速度和命令执行效率。
+- **生态兼容**：更好地集成 npm 生态系统工具。
+
+#### 2. 通用安装器 (Universal Installer)
+- **统一分发**：支持通过 npm/yarn/pnpm 全局安装 (`npm install -g agentflow`)。
+- **跨平台一致性**：确保 macOS, Linux, Windows (WSL/PowerShell) 拥有一致的安装体验。
+- **零依赖**：内置所需运行时，不再依赖系统 Python 或特定 Shell 版本。
+
+#### 3. 瘦包装器 (Thin Wrapper)
+- **架构精简**：AgentFlow 现在作为一个轻量级的 "瘦包装器" (Thin Wrapper) 运行，专注于连接 VS Code、Copilot 和本地工具链。
+- **低侵入性**：减少了对项目文件的直接修改，更多配置通过运行时注入。
+
+#### 4. 卫生协议 (Hygiene Protocols)
+- **严格规范**：引入了严格的代码和文档 "卫生协议"，确保生成的代码和文档符合最高质量标准。
+- **自动清理**：CLI 包含自动清理和格式化功能，保持项目结构整洁。
+- **最佳实践强制**：内置检查机制，防止 "屎山" 代码堆积。
+
 ### Added
 - **核心定位文档**：📐 在 copilot-instructions.md 和 README 中明确 AgentFlow 的核心定位
   - **第一层（核心基础）**：完全建立在 VS Code + GitHub Copilot 之上
@@ -161,5 +188,6 @@ AgentFlow/
 
 ---
 
-[Unreleased]: https://github.com/user/agentflow/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/user/agentflow/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/user/agentflow/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/user/agentflow/releases/tag/v1.0.0

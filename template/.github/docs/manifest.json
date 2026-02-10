@@ -1,15 +1,15 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-02-08 00:00:00",
+  "lastUpdated": "2026-02-10 08:24:08",
   "documents": [
     {
       "path": "changelog/CHANGELOG.md",
       "status": "active",
       "created": "2026-02-08",
-      "updated": "2026-02-08",
+      "updated": "2026-02-10",
       "type": "changelog",
       "title": "变更日志",
-      "changeType": "added"
+      "changeType": "modified"
     }
   ]
 }
