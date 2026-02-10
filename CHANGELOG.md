@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-02-10
+
+### Fixed
+- 修复文档门户中的 CORS 问题，允许通过 file:// 协议离线访问。
+
 ## [2.0.0] - 2026-02-10
 
 **AgentFlow 2.0.0 重大架构升级：Node.js 迁移与通用安装器**
