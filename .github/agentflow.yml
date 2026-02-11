@@ -1,0 +1,28 @@
+# AgentFlow 模型配置中枢
+# 修改后运行："请根据 agentflow.yml 更新所有模型配置"
+#
+# VS Code Copilot 可用模型（截至 2026-02）：
+#   Claude:  Sonnet 4.5 (1x) | Opus 4.5 (3x) | Opus 4.6 (3x) | Haiku 3.5
+#   OpenAI:  GPT-4o | GPT-o3 | GPT-o4-mini | GPT-5.2 | GPT-5.2 Codex
+#   Google:  Gemini 2.5 Pro | Gemini 2.5 Flash
+#   xAI:    Grok Code Fast 1 (0x)
+#   更多:    根据 Copilot 订阅动态扩展
+
+models:
+  primary: "Claude Sonnet 4.5 (copilot)"     # 主力：高频任务（1x）
+  advanced: "Claude Opus 4.5 (copilot)"      # 高级：复杂推理（3x）
+  alternatives:                               # 备选：手动切换
+    - "Gemini 2.5 Pro (copilot)"
+    - "GPT-5.2 (copilot)"
+    - "GPT-5.2 Codex (copilot)"
+    - "Claude Opus 4.6 (copilot)"
+
+agents:
+  plan:       [primary, advanced]             # + alternatives 可手动切换
+  implement:  [primary, advanced]
+  reviewer:   [primary, advanced]
+  tester:     [primary, advanced]
+  debug:      [advanced, primary]             # 唯一高级优先
+
+prompts:      [primary, advanced]             # + alternatives 可手动切换
+handoffs:     primary

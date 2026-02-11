@@ -1,3 +1,28 @@
+## [2026-02-11 21:20:27] feat: complete portal upgrade (categorization, sorting, project identity) and cross-platform installation scripts
+
+### 变更文件:
+```
+M .github/docs/changelog/CHANGELOG.md
+ M .github/docs/docs-content.js
+ M .github/docs/index.html
+ M .github/docs/manifest.js
+ M .github/docs/manifest.json
+ M .github/scripts/agentflow.js
+ M bin/agentflow
+ M scripts/install-global.sh
+?? .github/agentflow-trust.yml
+?? .github/agentflow.yml
+?? .github/agents/
+?? .github/copilot-instructions.md
+?? .github/instructions/
+?? .github/project-memory.md
+?? .github/prompts/
+?? .sisyphus/test_opencode.md
+?? scripts/install-global.cmd
+?? scripts/install-project.ps1
+?? src/test_project.md
+```
+
 ## [2026-02-11 18:38:14] docs: update user manual and readme for cross-platform support
 
 ### 变更文件:

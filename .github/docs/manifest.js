@@ -1,402 +1,16 @@
 window.AGENTFLOW_MANIFEST = {
   "version": "2.0.1",
-  "lastUpdated": "2026-02-11 10:35:18",
+  "lastUpdated": "2026-02-11 13:09:30",
   "documents": [
-    {
-      "path": ".github/docs/changelog/CHANGELOG.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "changelog",
-      "title": "CHANGELOG",
-      "changeType": "added"
-    },
-    {
-      "path": ".github/skills/install-agentflow/SKILL.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "SKILL",
-      "changeType": "added"
-    },
-    {
-      "path": ".sisyphus/drafts/docs-upgrade.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "docs-upgrade",
-      "changeType": "added"
-    },
-    {
-      "path": "AGENTS.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "AGENTS",
-      "changeType": "added"
-    },
-    {
-      "path": "CHANGELOG.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "CHANGELOG",
-      "changeType": "added"
-    },
-    {
-      "path": "README.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
-    },
-    {
-      "path": "docs/COMPARISON.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "COMPARISON",
-      "changeType": "added"
-    },
-    {
-      "path": "docs/INTEGRATION_GUIDE.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "INTEGRATION_GUIDE",
-      "changeType": "added"
-    },
-    {
-      "path": "docs/ROADMAP.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "ROADMAP",
-      "changeType": "added"
-    },
-    {
-      "path": "docs/USER_MANUAL.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "USER_MANUAL",
-      "changeType": "added"
-    },
-    {
-      "path": "docs/VERSION_HISTORY.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "VERSION_HISTORY",
-      "changeType": "added"
-    },
-    {
-      "path": "src/docs/test_nested_doc.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "test_nested_doc",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/agents/debug.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "debug.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/agents/implement.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "implement.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/agents/plan.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "plan.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/agents/reviewer.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "reviewer.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/agents/tester.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "tester.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/copilot-instructions.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "copilot-instructions",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/docs/agentflow/README.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/docs/archive/README.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/docs/changelog/CHANGELOG.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "CHANGELOG",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/docs/plan/README.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
-    },
     {
       "path": "template/.github/docs/references/README.md",
       "status": "active",
       "created": "2026-02-11",
       "updated": "2026-02-11",
       "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/docs/reports/README.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/instructions/project-context.instructions.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "project-context.instructions",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/project-memory.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "project-memory",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/prompts/add-feature.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "add-feature.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/prompts/auto.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "auto.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/prompts/code-review.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "code-review.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/prompts/fix-bug.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "fix-bug.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/prompts/generate-changelog.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "generate-changelog.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/prompts/plan-and-execute.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "plan-and-execute.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "template/.github/prompts/refactor.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "refactor.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "test_global_doc.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "test_global_doc",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/agents/debug.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "debug.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/agents/implement.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "implement.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/agents/plan.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "plan.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/agents/reviewer.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "reviewer.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/agents/tester.agent.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "tester.agent",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/copilot-instructions.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "copilot-instructions",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/docs/agentflow/README.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/docs/archive/README.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/docs/changelog/CHANGELOG.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "CHANGELOG",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/docs/plan/README.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
+      "category": "Template",
+      "title": "参考资料目录",
+      "changeType": "modified"
     },
     {
       "path": "test_sandbox/.github/docs/references/README.md",
@@ -404,8 +18,19 @@ window.AGENTFLOW_MANIFEST = {
       "created": "2026-02-11",
       "updated": "2026-02-11",
       "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
+      "category": "Test_sandbox",
+      "title": "参考资料目录",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/docs/reports/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "工作报告目录",
+      "changeType": "modified"
     },
     {
       "path": "test_sandbox/.github/docs/reports/README.md",
@@ -413,89 +38,29 @@ window.AGENTFLOW_MANIFEST = {
       "created": "2026-02-11",
       "updated": "2026-02-11",
       "type": "knowledge",
-      "title": "README",
-      "changeType": "added"
+      "category": "Test_sandbox",
+      "title": "工作报告目录",
+      "changeType": "modified"
     },
     {
-      "path": "test_sandbox/.github/instructions/project-context.instructions.md",
+      "path": "template/.github/docs/plan/README.md",
       "status": "active",
       "created": "2026-02-11",
       "updated": "2026-02-11",
       "type": "knowledge",
-      "title": "project-context.instructions",
-      "changeType": "added"
+      "category": "Template",
+      "title": "开发计划目录",
+      "changeType": "modified"
     },
     {
-      "path": "test_sandbox/.github/project-memory.md",
+      "path": "test_sandbox/.github/docs/plan/README.md",
       "status": "active",
       "created": "2026-02-11",
       "updated": "2026-02-11",
       "type": "knowledge",
-      "title": "project-memory",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/prompts/add-feature.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "add-feature.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/prompts/auto.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "auto.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/prompts/code-review.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "code-review.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/prompts/fix-bug.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "fix-bug.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/prompts/generate-changelog.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "generate-changelog.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/prompts/plan-and-execute.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "plan-and-execute.prompt",
-      "changeType": "added"
-    },
-    {
-      "path": "test_sandbox/.github/prompts/refactor.prompt.md",
-      "status": "active",
-      "created": "2026-02-11",
-      "updated": "2026-02-11",
-      "type": "knowledge",
-      "title": "refactor.prompt",
-      "changeType": "added"
+      "category": "Test_sandbox",
+      "title": "开发计划目录",
+      "changeType": "modified"
     },
     {
       "path": "test_sandbox/offline-test.md",
@@ -503,8 +68,669 @@ window.AGENTFLOW_MANIFEST = {
       "created": "2026-02-11",
       "updated": "2026-02-11",
       "type": "knowledge",
-      "title": "offline-test",
+      "category": "Test_sandbox",
+      "title": "离线测试文档",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/docs/archive/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "历史归档目录",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/docs/archive/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "历史归档目录",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/project-memory.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "项目记忆",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/project-memory.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "项目记忆",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/project-memory.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "项目记忆",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/prompts/add-feature.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Add Feature.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/prompts/add-feature.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Add Feature.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/add-feature.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Add Feature.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "docs/VERSION_HISTORY.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Docs",
+      "title": "AgentFlow 版本历史",
+      "changeType": "modified"
+    },
+    {
+      "path": "docs/USER_MANUAL.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Docs",
+      "title": "AgentFlow 操作手册",
+      "changeType": "modified"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Docs",
+      "title": "AgentFlow 产品路线图",
+      "changeType": "modified"
+    },
+    {
+      "path": "docs/INTEGRATION_GUIDE.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Docs",
+      "title": "AgentFlow 集成教程",
+      "changeType": "modified"
+    },
+    {
+      "path": "docs/COMPARISON.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Docs",
+      "title": "AgentFlow 竞品对比",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/docs/agentflow/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "AgentFlow 文档索引",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/docs/agentflow/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "AgentFlow 文档索引",
+      "changeType": "modified"
+    },
+    {
+      "path": "README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Project",
+      "title": "AgentFlow v1.0.0",
+      "changeType": "modified"
+    },
+    {
+      "path": "AGENTS.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Project",
+      "title": "AGENTS.md - AgentFlow Development Guide",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/prompts/auto.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Auto.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/prompts/auto.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Auto.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/auto.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Auto.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/docs/changelog/CHANGELOG.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "changelog",
+      "category": "AgentFlow",
+      "title": "CHANGELOG",
+      "changeType": "modified"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Project",
+      "title": "CHANGELOG",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/docs/changelog/CHANGELOG.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "CHANGELOG",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/docs/changelog/CHANGELOG.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "CHANGELOG",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/prompts/code-review.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Code Review.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/prompts/code-review.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Code Review.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/code-review.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Code Review.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/copilot-instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Copilot Instructions",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/copilot-instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Copilot Instructions",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/copilot-instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Copilot Instructions",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/agents/debug.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Debug.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/agents/debug.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Debug.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/agents/debug.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Debug.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": ".sisyphus/drafts/docs-upgrade.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "OpenCode",
+      "title": "Draft: AgentFlow Docs Portal Upgrade",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/prompts/fix-bug.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Fix Bug.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/prompts/fix-bug.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Fix Bug.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/fix-bug.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Fix Bug.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/prompts/generate-changelog.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Generate Changelog.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/prompts/generate-changelog.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Generate Changelog.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/generate-changelog.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Generate Changelog.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/agents/implement.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Implement.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/agents/implement.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Implement.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/agents/implement.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Implement.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": ".sisyphus/test_opencode.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "OpenCode",
+      "title": "OpenCode Doc",
       "changeType": "added"
+    },
+    {
+      "path": ".github/prompts/plan-and-execute.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Plan And Execute.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/prompts/plan-and-execute.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Plan And Execute.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/plan-and-execute.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Plan And Execute.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/agents/plan.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Plan.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/agents/plan.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Plan.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/agents/plan.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Plan.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/instructions/project-context.instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Project Context.Instructions",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/instructions/project-context.instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Project Context.Instructions",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/instructions/project-context.instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Project Context.Instructions",
+      "changeType": "modified"
+    },
+    {
+      "path": "src/test_project.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Project",
+      "title": "Project Doc",
+      "changeType": "added"
+    },
+    {
+      "path": ".github/prompts/refactor.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Refactor.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/prompts/refactor.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Refactor.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/refactor.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Refactor.Prompt",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/agents/reviewer.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Reviewer.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/agents/reviewer.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Reviewer.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/agents/reviewer.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Reviewer.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/skills/install-agentflow/SKILL.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "SKILL",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_global_doc.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Project",
+      "title": "Test Global Doc",
+      "changeType": "modified"
+    },
+    {
+      "path": "src/docs/test_nested_doc.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Project",
+      "title": "Test Nested Doc",
+      "changeType": "modified"
+    },
+    {
+      "path": ".github/agents/tester.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "AgentFlow",
+      "title": "Tester.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "template/.github/agents/tester.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Template",
+      "title": "Tester.Agent",
+      "changeType": "modified"
+    },
+    {
+      "path": "test_sandbox/.github/agents/tester.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "category": "Test_sandbox",
+      "title": "Tester.Agent",
+      "changeType": "modified"
     }
   ]
 };
