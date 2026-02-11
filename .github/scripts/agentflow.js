@@ -557,7 +557,9 @@ function handleDocsRefresh() {
   const docsDir = path.join(process.cwd(), '.github', 'docs');
   const manifestPath = path.join(docsDir, 'manifest.json');
   const manifestJsPath = path.join(docsDir, 'manifest.js');
+  const docsContentJsPath = path.join(docsDir, 'docs-content.js');
   const indexPath = path.join(docsDir, 'index.html');
+  const viewerPath = path.join(docsDir, 'viewer.html');
   
   if (!fs.existsSync(docsDir)) {
     console.error('❌ .github/docs 目录不存在');
@@ -579,47 +581,94 @@ function handleDocsRefresh() {
   const today = new Date().toISOString().split('T')[0];
   const now = new Date().toISOString().replace('T', ' ').split('.')[0];
   const newDocs = [];
+  const docsContent = {};
   let addedCount = 0;
   let modifiedCount = 0;
   
-  function scanDir(subDir, type) {
+  // Helper to process a file
+  function processFile(filePath, type, status = 'active') {
+    const relPath = path.relative(process.cwd(), filePath);
+    // Normalize path separators for Windows compatibility
+    const normalizedPath = relPath.split(path.sep).join('/');
+    
+    // Check if we already processed this file (to avoid duplicates)
+    if (newDocs.find(d => d.path === normalizedPath)) return;
+
+    const oldDoc = existingDocs[normalizedPath];
+    
+    const isNew = !oldDoc;
+    let changeType = isNew ? 'added' : 'modified';
+    if (status === 'archived') changeType = 'archived';
+
+    if (isNew) addedCount++;
+    else modifiedCount++;
+
+    newDocs.push({
+      path: normalizedPath,
+      status: status,
+      created: isNew ? today : oldDoc.created,
+      updated: today,
+      type: type,
+      title: path.basename(filePath, '.md'),
+      changeType: changeType
+    });
+
+    try {
+      docsContent[normalizedPath] = fs.readFileSync(filePath, 'utf8');
+    } catch (e) {
+      console.error(`⚠️ 无法读取文件内容: \${filePath}`);
+    }
+  }
+
+  // 1. Scan Standard Docs (.github/docs/*)
+  function scanStandardDir(subDir, type) {
     const dirPath = path.join(docsDir, subDir);
     if (fs.existsSync(dirPath)) {
       const files = fs.readdirSync(dirPath).filter(f => f.endsWith('.md') && f !== 'README.md');
       files.forEach(f => {
-        const relPath = `${subDir}/${f}`;
-        const oldDoc = existingDocs[relPath];
-        
-        const isNew = !oldDoc;
-        let changeType = isNew ? 'added' : 'modified';
+        const filePath = path.join(dirPath, f);
         let status = 'active';
-        
-        if (subDir === 'archive') {
-            status = 'archived';
-            changeType = 'archived';
-        }
-
-        if (isNew) addedCount++;
-        else modifiedCount++;
-
-        newDocs.push({
-          path: relPath,
-          status: status,
-          created: isNew ? today : oldDoc.created,
-          updated: today,
-          type: type,
-          title: f.replace('.md', ''),
-          changeType: changeType
-        });
+        if (subDir === 'archive') status = 'archived';
+        processFile(filePath, type, status);
       });
     }
   }
 
-  scanDir('plan', 'plan');
-  scanDir('reports', 'report');
-  scanDir('references', 'reference');
-  scanDir('changelog', 'changelog');
-  scanDir('archive', 'archive');
+  scanStandardDir('plan', 'plan');
+  scanStandardDir('reports', 'report');
+  scanStandardDir('references', 'reference');
+  scanStandardDir('changelog', 'changelog');
+  scanStandardDir('archive', 'archive');
+
+  // 2. Scan Global Docs (Recursive)
+  const globalExclusions = ['node_modules', '.git', 'dist', 'build', 'coverage', 'tmp', 'temp', 'vendor'];
+  
+  function scanGlobal(dir) {
+    const files = fs.readdirSync(dir);
+    for (const file of files) {
+      const fullPath = path.join(dir, file);
+      const relPath = path.relative(process.cwd(), fullPath);
+      const normalizedRelPath = relPath.split(path.sep).join('/');
+      
+      // Skip if it's in .github/docs (already handled)
+      if (normalizedRelPath.startsWith('.github/docs')) continue;
+
+      try {
+        const stat = fs.statSync(fullPath);
+        if (stat.isDirectory()) {
+          if (globalExclusions.includes(file)) continue;
+          scanGlobal(fullPath);
+        } else if (file.endsWith('.md')) {
+          processFile(fullPath, 'knowledge');
+        }
+      } catch (e) {
+        // Ignore errors (e.g. permission denied)
+      }
+    }
+  }
+
+  // Start global scan from root
+  scanGlobal(process.cwd());
 
   let version = '1.0.0';
   try {
@@ -637,13 +686,21 @@ function handleDocsRefresh() {
   const jsContent = `window.AGENTFLOW_MANIFEST = ${JSON.stringify(manifestData, null, 2)};`;
   fs.writeFileSync(manifestJsPath, jsContent);
 
+  const contentJsContent = `window.AGENTFLOW_CONTENT = ${JSON.stringify(docsContent, null, 2)};`;
+  fs.writeFileSync(docsContentJsPath, contentJsContent);
+
   const htmlContent = generateHtmlIndex(version, now);
   fs.writeFileSync(indexPath, htmlContent);
+
+  const viewerContent = generateViewerHtml();
+  fs.writeFileSync(viewerPath, viewerContent);
   
   console.log(`✅ 文档门户已刷新 (共 ${newDocs.length} 个文档)`);
   console.log(`   - JSON: ${manifestPath}`);
   console.log(`   - JS:   ${manifestJsPath} (离线支持)`);
+  console.log(`   - Content: ${docsContentJsPath} (离线支持)`);
   console.log(`   - HTML: ${indexPath}`);
+  console.log(`   - View: ${viewerPath}`);
 }
 
 function generateHtmlIndex(version, lastUpdated) {
@@ -719,8 +776,8 @@ function generateHtmlIndex(version, lastUpdated) {
                 <div class="stat-label">工作报告</div>
             </div>
             <div class="stat">
-                <div class="stat-value" id="archivedDocs">-</div>
-                <div class="stat-label">已归档</div>
+                <div class="stat-value" id="knowledgeDocs">-</div>
+                <div class="stat-label">知识库</div>
             </div>
         </div>
         
@@ -739,6 +796,13 @@ function generateHtmlIndex(version, lastUpdated) {
                 </ul>
             </div>
             
+            <div class="section">
+                <h2><span class="section-icon">📚</span> 知识库</h2>
+                <ul class="doc-list" id="knowledgeList">
+                    <li class="empty">加载中...</li>
+                </ul>
+            </div>
+
             <div class="section">
                 <h2><span class="section-icon">📋</span> 变更日志</h2>
                 <ul class="doc-list" id="changelogList">
@@ -810,11 +874,12 @@ function generateHtmlIndex(version, lastUpdated) {
             document.getElementById('totalDocs').textContent = docs.length;
             document.getElementById('activePlans').textContent = docs.filter(d => d.type === 'plan' && d.status === 'active').length;
             document.getElementById('totalReports').textContent = docs.filter(d => d.type === 'report').length;
-            document.getElementById('archivedDocs').textContent = docs.filter(d => d.status === 'archived').length;
+            document.getElementById('knowledgeDocs').textContent = docs.filter(d => d.type === 'knowledge').length;
             
             // 填充列表
             const plans = docs.filter(d => d.type === 'plan' && d.status === 'active');
             const reports = docs.filter(d => d.type === 'report' && d.status !== 'archived');
+            const knowledge = docs.filter(d => d.type === 'knowledge');
             const changelogs = docs.filter(d => d.type === 'changelog');
             const refs = docs.filter(d => d.type === 'reference');
             const archived = docs.filter(d => d.status === 'archived');
@@ -822,6 +887,7 @@ function generateHtmlIndex(version, lastUpdated) {
             
             renderList('planList', plans);
             renderList('reportList', reports);
+            renderList('knowledgeList', knowledge);
             renderList('changelogList', changelogs);
             renderList('referenceList', refs);
             renderList('archiveList', archived);
@@ -837,7 +903,7 @@ function generateHtmlIndex(version, lastUpdated) {
             el.innerHTML = items.map(d => \`
                 <li class="doc-item">
                     <div>
-                        <a href="\${d.path}" class="doc-link">\${d.title || d.path}</a>
+                        <a href="viewer.html?doc=\${encodeURIComponent(d.path)}" class="doc-link">\${d.title || d.path}</a>
                         <div class="doc-date">\${d.updated}</div>
                     </div>
                     <span class="badge badge-\${d.changeType}">\${d.changeType === 'added' ? '新增' : d.changeType === 'modified' ? '更新' : '归档'}</span>
@@ -847,6 +913,120 @@ function generateHtmlIndex(version, lastUpdated) {
 
         // 启动加载
         loadManifest();
+    </script>
+</body>
+</html>`;
+}
+
+function generateViewerHtml() {
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentFlow 文档查看器</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="docs-content.js"></script>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --bg: #F9FAFB;
+            --card: #FFFFFF;
+            --text: #1F2937;
+            --border: #E5E7EB;
+        }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            line-height: 1.6; 
+            margin: 0;
+            padding: 0;
+        }
+        .nav-header { 
+            background: var(--card);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .back-link { 
+            color: var(--primary); 
+            text-decoration: none; 
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .doc-path { 
+            color: #6B7280; 
+            margin-left: 1rem; 
+            font-size: 0.875rem;
+            font-family: monospace;
+        }
+        .content-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        /* Markdown Styles */
+        .markdown-body { font-size: 16px; }
+        .markdown-body h1, .markdown-body h2, .markdown-body h3 { margin-top: 1.5em; margin-bottom: 0.5em; font-weight: 600; line-height: 1.25; }
+        .markdown-body h1 { font-size: 2em; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; }
+        .markdown-body h2 { font-size: 1.5em; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; }
+        .markdown-body p { margin-bottom: 1em; }
+        .markdown-body ul, .markdown-body ol { margin-bottom: 1em; padding-left: 2em; }
+        .markdown-body code { font-family: monospace; background: #F3F4F6; padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+        .markdown-body pre { background: #1F2937; color: #F9FAFB; padding: 1em; border-radius: 8px; overflow-x: auto; margin-bottom: 1em; }
+        .markdown-body pre code { background: transparent; color: inherit; padding: 0; }
+        .markdown-body blockquote { border-left: 4px solid var(--border); color: #6B7280; padding-left: 1em; margin: 0 0 1em 0; }
+        .markdown-body img { max-width: 100%; border-radius: 8px; }
+        .markdown-body table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
+        .markdown-body th, .markdown-body td { border: 1px solid var(--border); padding: 0.5em; }
+        .markdown-body th { background: #F9FAFB; font-weight: 600; }
+        .markdown-body a { color: var(--primary); text-decoration: none; }
+        .markdown-body a:hover { text-decoration: underline; }
+        
+        .loading { text-align: center; padding: 2rem; color: #6B7280; }
+        .error { color: #EF4444; padding: 1rem; background: #FEF2F2; border-radius: 8px; border: 1px solid #FECACA; }
+    </style>
+</head>
+<body>
+    <div class="nav-header">
+        <a href="index.html" class="back-link">← 返回门户</a>
+        <span id="docPath" class="doc-path"></span>
+    </div>
+    
+    <div class="content-container">
+        <div id="content" class="markdown-body">
+            <div class="loading">正在加载文档...</div>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const docPath = params.get('doc');
+        
+        if (!docPath) {
+            document.getElementById('content').innerHTML = '<div class="error">❌ 未指定文档路径</div>';
+        } else {
+            document.getElementById('docPath').textContent = docPath;
+            
+            const content = window.AGENTFLOW_CONTENT && window.AGENTFLOW_CONTENT[docPath];
+            if (content) {
+                document.getElementById('content').innerHTML = marked.parse(content);
+            } else {
+                document.getElementById('content').innerHTML = \`<div class="error">❌ 无法加载文档: 未找到内容<br>路径: \${docPath}</div>\`;
+            }
+        }
     </script>
 </body>
 </html>`;
