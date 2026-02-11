@@ -10,6 +10,9 @@
 - [Agent 系统](#agent-系统) - 5 个专家 Agent 使用指南
 - [Prompt 工作流](#prompt-工作流) - 7 个预设工作流
 - [CLI 命令](#cli-命令) - 命令行工具完整参考
+- [跨平台支持](#跨平台支持) - Windows / macOS / Linux
+- [文档门户](#文档门户) - 全局知识库与离线阅读
+- [Git 工作流](#git-工作流) - 自动化提交与更新
 - [配置管理](#配置管理) - agentflow.yml / project-memory.md
 - [最佳实践](#最佳实践) - 日常开发推荐流程
 - [故障排查](#故障排查) - 常见问题解决方案
@@ -103,6 +106,79 @@ agentflow validate             # 验证配置完整性
 ```bash
 agentflow docs                 # 打开文档目录
 ```
+
+### agentflow docs-refresh
+
+```bash
+agentflow docs-refresh         # 刷新全局文档索引
+```
+
+**功能**：
+- 扫描项目中所有 Markdown 文件
+- 生成 `docs/manifest.json` 索引
+- 更新 `docs/index.html` 离线阅读器
+- 提供统一的知识库入口
+
+---
+
+## 💻 跨平台支持
+
+AgentFlow v1.0.0+ 原生支持 Windows、macOS 和 Linux。
+
+### Windows 支持
+- **安装脚本**: `scripts\install-global.cmd`
+- **CLI**: `bin\agentflow.cmd`
+- **PowerShell**: 支持 `.ps1` 脚本执行
+- **路径兼容**: 自动处理 `\` 和 `/` 路径分隔符
+
+### macOS / Linux 支持
+- **Shell**: Zsh / Bash 完全兼容
+- **权限**: 自动管理 `chmod +x`
+
+---
+
+## 📚 文档门户 (Global Knowledge Hub)
+
+AgentFlow 提供了一个内置的文档门户，用于集中管理和阅读项目文档。
+
+### 核心功能
+1.  **全局索引**: `agentflow docs-refresh` 命令会自动扫描 `docs/`、`.github/docs/` 以及项目根目录下的所有 Markdown 文件。
+2.  **离线阅读**: 生成的 `docs/index.html` 是一个单页应用 (SPA)，无需联网即可使用。
+3.  **分类管理**: 自动识别文档类型（计划、报告、参考资料等）并分类展示。
+
+### 使用方法
+1.  运行 `agentflow docs-refresh` 更新索引。
+2.  打开 `docs/index.html` (或运行 `agentflow docs`) 在浏览器中查看。
+
+---
+
+## 🔄 Git 工作流自动化
+
+为了规范团队协作，AgentFlow 提供了 `scripts/git-workflow.js` 脚本来自动化 Git 操作。
+
+### 提交代码 (Submit)
+
+```bash
+node scripts/git-workflow.js submit "你的提交信息"
+```
+
+**流程**：
+1.  自动生成 CHANGELOG 条目。
+2.  执行 `git add .`。
+3.  执行 `git commit`。
+4.  执行 `git pull --rebase` (自动处理 master/main 分支)。
+5.  执行 `git push`。
+
+### 更新代码 (Update)
+
+```bash
+node scripts/git-workflow.js update
+```
+
+**流程**：
+1.  自动 `git stash` 保存本地修改。
+2.  执行 `git pull --rebase` 拉取远程更新。
+3.  自动 `git stash pop` 恢复本地修改。
 
 ---
 

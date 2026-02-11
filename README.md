@@ -2,6 +2,8 @@
 
 > 🚀 AI 辅助开发工作流系统 | 完全建立在 VS Code + GitHub Copilot 之上  
 > 在熟悉的 IDE 里，用熟悉的 Chat，获得所有 AI 编程工具的能力
+> 
+> ![Windows Support](https://img.shields.io/badge/Windows-Supported-blue) ![macOS Support](https://img.shields.io/badge/macOS-Supported-green) ![Linux Support](https://img.shields.io/badge/Linux-Supported-orange)
 
 ## 🎯 为什么需要 AgentFlow？
 
@@ -29,12 +31,15 @@ AgentFlow = VS Code + Copilot + (opencode ∪ oh-my-opencode ∪ vibing ∪ git-
 - ⚙️ **多模型支持**: Claude Sonnet 4 / Opus 4 / GPT-4o / Gemini 2.5 Pro
 - 🔄 **Agent 流转**: 自动调度适合的专家完成任务
 - 📦 **一键部署**: 全局安装 + 项目级初始化
+- 🪟 **Windows 支持**: 原生支持 Windows (.cmd/.ps1)，跨平台无缝体验
+- 📚 **全局知识库**: `agentflow docs-refresh` 一键索引所有文档，提供离线阅读器
 - 🌍 **全栈通用**: Swift/Python/TypeScript/Go/Rust/Java/Kotlin/C++ 均适用
 
 ## 🚀 快速开始
 
 ### 方式 1：全局安装（推荐）
 
+#### macOS / Linux
 ```bash
 # 1. 全局安装 AgentFlow
 cd AgentFlow-Package
@@ -48,6 +53,20 @@ cd /path/to/your/project
 agentflow init
 
 # 4. 用 VS Code 打开项目，开始使用
+code .
+```
+
+#### Windows
+```cmd
+:: 1. 全局安装 AgentFlow
+cd AgentFlow-Package
+.\scripts\install-global.cmd
+
+:: 2. 在任意项目中初始化
+cd \path\to\your\project
+agentflow init
+
+:: 3. 用 VS Code 打开项目，开始使用
 code .
 ```
 

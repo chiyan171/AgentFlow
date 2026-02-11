@@ -1,3 +1,16 @@
+## [2026-02-11 18:26:03] Update documentation for Windows support, Global Docs Portal, and Git Workflow
+
+### 变更文件:
+```
+M .github/scripts/agentflow.js
+ M README.md
+ M docs/USER_MANUAL.md
+ D scripts/git-workflow.sh
+?? bin/agentflow.cmd
+?? bin/agentflow.ps1
+?? scripts/git-workflow.js
+```
+
 ## [2026-02-11 18:12:25] 配置 Git: 启用 .sisyphus 目录追踪 (共享 OpenCode AI 记忆)
 
 ### 变更文件:

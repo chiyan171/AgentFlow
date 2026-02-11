@@ -123,8 +123,8 @@ function handleInit(args) {
         process.exit(1);
       }
     } else {
-      const projectMemoryPath = path.join(targetPath, '.github/project-memory.md');
-      const docsPath = path.join(targetPath, '.github/docs');
+      const projectMemoryPath = path.join(targetPath, '.github', 'project-memory.md');
+      const docsPath = path.join(targetPath, '.github', 'docs');
 
       if (fs.existsSync(projectMemoryPath)) {
         const backupPath = projectMemoryPath + '.bak';
