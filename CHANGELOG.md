@@ -1,3 +1,10 @@
+## [2026-02-11 18:33:35] refactor: make bin/agentflow POSIX compliant & update docs for max compatibility
+
+### 变更文件:
+```
+M docs/USER_MANUAL.md
+```
+
 ## [2026-02-11 18:26:03] Update documentation for Windows support, Global Docs Portal, and Git Workflow
 
 ### 变更文件:

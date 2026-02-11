@@ -123,17 +123,18 @@ agentflow docs-refresh         # 刷新全局文档索引
 
 ## 💻 跨平台支持
 
-AgentFlow v1.0.0+ 原生支持 Windows、macOS 和 Linux。
+AgentFlow v1.0.0+ 实现了工业级的跨平台兼容性，原生支持 Windows、macOS 和 Linux。
 
-### Windows 支持
+### Windows 支持 (Native)
+- **CMD/PowerShell**: 原生支持，无需 WSL 或 Git Bash。
 - **安装脚本**: `scripts\install-global.cmd`
-- **CLI**: `bin\agentflow.cmd`
-- **PowerShell**: 支持 `.ps1` 脚本执行
-- **路径兼容**: 自动处理 `\` 和 `/` 路径分隔符
+- **CLI**: `bin\agentflow.cmd` 自动调用核心逻辑。
+- **路径兼容**: 自动处理 `\` 和 `/` 路径分隔符，确保文件操作准确。
 
-### macOS / Linux 支持
-- **Shell**: Zsh / Bash 完全兼容
-- **权限**: 自动管理 `chmod +x`
+### macOS / Linux 支持 (POSIX Compliant)
+- **标准 Shell**: 核心脚本 `bin/agentflow` 采用标准 `/bin/sh` 编写，移除对 `zsh` 的依赖。
+- **广泛兼容**: 支持 Alpine Linux、Ubuntu Minimal 等精简环境。
+- **权限管理**: 安装过程自动处理 `chmod +x`。
 
 ---
 
