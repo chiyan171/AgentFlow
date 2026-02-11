@@ -1,0 +1,510 @@
+window.AGENTFLOW_MANIFEST = {
+  "version": "2.0.1",
+  "lastUpdated": "2026-02-11 10:35:18",
+  "documents": [
+    {
+      "path": ".github/docs/changelog/CHANGELOG.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "changelog",
+      "title": "CHANGELOG",
+      "changeType": "added"
+    },
+    {
+      "path": ".github/skills/install-agentflow/SKILL.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "SKILL",
+      "changeType": "added"
+    },
+    {
+      "path": ".sisyphus/drafts/docs-upgrade.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "docs-upgrade",
+      "changeType": "added"
+    },
+    {
+      "path": "AGENTS.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "AGENTS",
+      "changeType": "added"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "CHANGELOG",
+      "changeType": "added"
+    },
+    {
+      "path": "README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "docs/COMPARISON.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "COMPARISON",
+      "changeType": "added"
+    },
+    {
+      "path": "docs/INTEGRATION_GUIDE.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "INTEGRATION_GUIDE",
+      "changeType": "added"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "ROADMAP",
+      "changeType": "added"
+    },
+    {
+      "path": "docs/USER_MANUAL.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "USER_MANUAL",
+      "changeType": "added"
+    },
+    {
+      "path": "docs/VERSION_HISTORY.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "VERSION_HISTORY",
+      "changeType": "added"
+    },
+    {
+      "path": "src/docs/test_nested_doc.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "test_nested_doc",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/agents/debug.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "debug.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/agents/implement.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "implement.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/agents/plan.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "plan.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/agents/reviewer.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "reviewer.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/agents/tester.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "tester.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/copilot-instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "copilot-instructions",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/docs/agentflow/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/docs/archive/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/docs/changelog/CHANGELOG.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "CHANGELOG",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/docs/plan/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/docs/references/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/docs/reports/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/instructions/project-context.instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "project-context.instructions",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/project-memory.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "project-memory",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/prompts/add-feature.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "add-feature.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/prompts/auto.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "auto.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/prompts/code-review.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "code-review.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/prompts/fix-bug.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "fix-bug.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/prompts/generate-changelog.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "generate-changelog.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/prompts/plan-and-execute.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "plan-and-execute.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "template/.github/prompts/refactor.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "refactor.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "test_global_doc.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "test_global_doc",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/agents/debug.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "debug.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/agents/implement.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "implement.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/agents/plan.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "plan.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/agents/reviewer.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "reviewer.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/agents/tester.agent.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "tester.agent",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/copilot-instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "copilot-instructions",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/docs/agentflow/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/docs/archive/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/docs/changelog/CHANGELOG.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "CHANGELOG",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/docs/plan/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/docs/references/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/docs/reports/README.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "README",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/instructions/project-context.instructions.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "project-context.instructions",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/project-memory.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "project-memory",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/add-feature.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "add-feature.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/auto.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "auto.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/code-review.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "code-review.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/fix-bug.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "fix-bug.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/generate-changelog.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "generate-changelog.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/plan-and-execute.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "plan-and-execute.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/.github/prompts/refactor.prompt.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "refactor.prompt",
+      "changeType": "added"
+    },
+    {
+      "path": "test_sandbox/offline-test.md",
+      "status": "active",
+      "created": "2026-02-11",
+      "updated": "2026-02-11",
+      "type": "knowledge",
+      "title": "offline-test",
+      "changeType": "added"
+    }
+  ]
+};

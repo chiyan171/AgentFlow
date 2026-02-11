@@ -1,3 +1,10 @@
+## [2026-02-11 18:38:14] docs: update user manual and readme for cross-platform support
+
+### 变更文件:
+```
+?? .github/docs/
+```
+
 ## [2026-02-11 18:33:35] refactor: make bin/agentflow POSIX compliant & update docs for max compatibility
 
 ### 变更文件:

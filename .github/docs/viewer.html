@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentFlow 文档查看器</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="docs-content.js"></script>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --bg: #F9FAFB;
+            --card: #FFFFFF;
+            --text: #1F2937;
+            --border: #E5E7EB;
+        }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            line-height: 1.6; 
+            margin: 0;
+            padding: 0;
+        }
+        .nav-header { 
+            background: var(--card);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .back-link { 
+            color: var(--primary); 
+            text-decoration: none; 
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .doc-path { 
+            color: #6B7280; 
+            margin-left: 1rem; 
+            font-size: 0.875rem;
+            font-family: monospace;
+        }
+        .content-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        /* Markdown Styles */
+        .markdown-body { font-size: 16px; }
+        .markdown-body h1, .markdown-body h2, .markdown-body h3 { margin-top: 1.5em; margin-bottom: 0.5em; font-weight: 600; line-height: 1.25; }
+        .markdown-body h1 { font-size: 2em; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; }
+        .markdown-body h2 { font-size: 1.5em; border-bottom: 1px solid var(--border); padding-bottom: 0.3em; }
+        .markdown-body p { margin-bottom: 1em; }
+        .markdown-body ul, .markdown-body ol { margin-bottom: 1em; padding-left: 2em; }
+        .markdown-body code { font-family: monospace; background: #F3F4F6; padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.9em; }
+        .markdown-body pre { background: #1F2937; color: #F9FAFB; padding: 1em; border-radius: 8px; overflow-x: auto; margin-bottom: 1em; }
+        .markdown-body pre code { background: transparent; color: inherit; padding: 0; }
+        .markdown-body blockquote { border-left: 4px solid var(--border); color: #6B7280; padding-left: 1em; margin: 0 0 1em 0; }
+        .markdown-body img { max-width: 100%; border-radius: 8px; }
+        .markdown-body table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
+        .markdown-body th, .markdown-body td { border: 1px solid var(--border); padding: 0.5em; }
+        .markdown-body th { background: #F9FAFB; font-weight: 600; }
+        .markdown-body a { color: var(--primary); text-decoration: none; }
+        .markdown-body a:hover { text-decoration: underline; }
+        
+        .loading { text-align: center; padding: 2rem; color: #6B7280; }
+        .error { color: #EF4444; padding: 1rem; background: #FEF2F2; border-radius: 8px; border: 1px solid #FECACA; }
+    </style>
+</head>
+<body>
+    <div class="nav-header">
+        <a href="index.html" class="back-link">← 返回门户</a>
+        <span id="docPath" class="doc-path"></span>
+    </div>
+    
+    <div class="content-container">
+        <div id="content" class="markdown-body">
+            <div class="loading">正在加载文档...</div>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const docPath = params.get('doc');
+        
+        if (!docPath) {
+            document.getElementById('content').innerHTML = '<div class="error">❌ 未指定文档路径</div>';
+        } else {
+            document.getElementById('docPath').textContent = docPath;
+            
+            const content = window.AGENTFLOW_CONTENT && window.AGENTFLOW_CONTENT[docPath];
+            if (content) {
+                document.getElementById('content').innerHTML = marked.parse(content);
+            } else {
+                document.getElementById('content').innerHTML = `<div class="error">❌ 无法加载文档: 未找到内容<br>路径: ${docPath}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>
