@@ -1,0 +1,17 @@
+# --- Local Development & Test ---
+test_sandbox/
+test_sandbox_*/
+test_global_doc.md
+*.log
+.DS_Store
+
+# --- Dependencies ---
+node_modules/
+
+# --- AI & AgentFlow Collaboration ---
+# .sisyphus/ contains local session logs. We ignore these to prevent merge conflicts.
+# Shared AI Memory & Config resides in .github/ and project-memory.md
+.sisyphus/
+
+# Note: src/ is NOT ignored as it contains source code.
+# Note: .github/ is NOT ignored as it contains Agents, Skills, and Docs.

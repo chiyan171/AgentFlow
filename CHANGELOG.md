@@ -1,3 +1,11 @@
+## [2026-02-11 18:07:11] 配置 Git 忽略规则以支持 AI 协作 (保留核心配置，忽略本地日志)
+
+### 变更文件:
+```
+ M .gitignore
+?? scripts/git-workflow.sh
+```
+
 # Changelog
 
 All notable changes to AgentFlow will be documented in this file.
