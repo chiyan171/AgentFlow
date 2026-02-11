@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 # AgentFlow Node.js Wrapper
 # 简体中文输出
@@ -8,16 +8,16 @@ AGENTFLOW_HOME="${AGENTFLOW_HOME:-$HOME/.agentflow}"
 JS_ENTRY="$AGENTFLOW_HOME/.github/scripts/agentflow.js"
 
 # 2. 检查 node 是否安装
-if ! command -v node &> /dev/null; then
+if ! command -v node >/dev/null 2>&1; then
     echo "❌ 错误: 未找到 'node'。请先安装 Node.js。"
     exit 1
 fi
 
 # 3. 检查核心脚本是否存在
-if [[ ! -f "$JS_ENTRY" ]]; then
+if [ ! -f "$JS_ENTRY" ]; then
     # 开发环境兼容：如果全局路径不存在，尝试使用相对路径
     DEV_ENTRY="$(dirname "$0")/../.github/scripts/agentflow.js"
-    if [[ -f "$DEV_ENTRY" ]]; then
+    if [ -f "$DEV_ENTRY" ]; then
         JS_ENTRY="$DEV_ENTRY"
     else
         echo "❌ 错误: 未找到核心脚本: $JS_ENTRY"
